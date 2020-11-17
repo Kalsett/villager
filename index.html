@@ -60,6 +60,8 @@
   </head>
   <body>
     <div class="inputFields">
+      <p class="addTrade titles">Caratteristiche Villager:</p>
+      <hr align="left" size="1" width="300" color="gray" noshade />
       <div class="inputInfo">
         <label for="Posizione">Posizione</label>
         <input list="Posizione" name="Posizione" id="posizione" />
@@ -111,64 +113,20 @@
         <label for="Nome">Nome</label>
         <input type="text" id="Nome" />
       </div>
-
-      <p class="addTrade">Trades:</p>
-      <button class="addTrade" id="addTradeButton">Aggiungi trade</button>
-
-      <div class="trades">
-        <!-- <div class="trade">
-          <br />
-          <div class="inputInfo">
-            <label for="Tipo-Moneta">Tipo moneta</label>
-            <select name="" id="Tipo-Moneta">
-              <option
-                value='display:{Name:"{\"text\":\"Iron Block (Beta)\"}"},SkullOwner:{Id:[I;-1273404245,-1758966597,-1508271075,-833688128],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjU2MjljMWM3N2FlYTJiMGNlYmNmMzMzNjU1ZTY4ZGIxMzRmNDg0MWMwOGQ5ZTg3NWMzMDc0YWMzMGUyYTZkZSJ9fX0="}]}}'
-              >
-                ferro
-              </option>
-              <option
-                value='display:{Name:"{\"text\":\"Golden Blank\"}"},SkullOwner:{Id:[I;-2055602587,-531214450,-1555823654,-1254945024],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUxMTM3ZTExNDQzYThmYmIwNWZjZDNjY2MxYWY5YmQyMzAzOTE4ZjM1NDQ4MTg1ZTNlZDk2ZWYxODRkYSJ9fX0="}]}}'
-              >
-                oro
-              </option>
-              <option
-                value='display:{Name:"{\"text\":\"Diamond Block\"}"},SkullOwner:{Id:[I;189941930,1156075107,-1303444300,-811366351],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM0NjMwOWRiYjRhYWI2ZjlkMTRhNjI3ZmI3M2Y0ODE0MTY1ODM3YjQyMzg1ZjA2NDMyZDY4MDIzYTg0NDVkIn19fQ=="}]}}'
-              >
-                diamante
-              </option>
-              <option
-                value='display:{Name:"{\"text\":\"Block of Netherite\"}"},SkullOwner:{Id:[I;1156551679,-1088599583,-1500868190,-421557710],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc5NTdmODk1ZDdiYzUzNDIzYTM1YWFjNTlkNTg0YjQxY2MzMGUwNDAyNjljOTU1ZTQ1MWZlNjgwYTFjYzA0OSJ9fX0="}]}}'
-              >
-                netherite
-              </option>
-            </select>
-          </div>
-          <div class="inputInfo">
-            <label for="Quantità-Monete">Quantità monete</label>
-            <input type="number" id="Quantità-Monete" />
-          </div>
-          <div class="inputInfo">
-            <label for="Oggetto-Vendita">Oggetto in vendita</label>
-            <input type="text" id="Oggetto-Vendita" />
-          </div>
-          <div class="inputInfo">
-            <label for="Quantità-Oggetti-Venduti"
-              >Quantità oggetti venduti</label
-            >
-            <input type="number" id="Quantità-Oggetti-Venduti" />
-          </div>
-          <br />
-        </div> -->
-      </div>
-
-      <div class="inputInfo">
-        <button id="button">Crea il comando</button>
-      </div>
+      <hr align="left" size="1" width="300" color="gray" noshade />
+      <p class="addTrade titles">Scambi:</p>
+      <!-- Dentro il div sotto js creera' tutto l'HTML necessario -->
+      <div class="trades"></div>
+      <hr align="left" size="1" width="300" color="gray" noshade />
+      <button class="addTrade" id="addTradeButton">Aggiungi scambio</button>
     </div>
+    <hr align="left" size="1" width="300" color="gray" noshade />
     <div class="outputFields">
+      <br />
+      <button id="button">Crea il comando</button>
       <textarea id="output"></textarea>
+      <button id="copyButton" onclick="copyText()">Copia il comando</button>
     </div>
-
     <script src="./Resources/JS/jquery350.js"></script>
     <script src="./Resources/JS/logic.js"></script>
   </body>

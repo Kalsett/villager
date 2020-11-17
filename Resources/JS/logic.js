@@ -3,10 +3,15 @@ let triggerButton = document.getElementById("button");
 let addTradeButton = document.getElementById("addTradeButton");
 let counter = 0;
 
-// Triggeratori
+// Triggeratori (il primo crea l'HTML degli scambi incrementando un counter che incrementera' tutti gli ID)
 addTradeButton.onclick = () => {
-  let trade = `<div class="trade">
+  let trade = `<div class="trade n${counter}">
             <br/>
+            <hr align="left" size="1" width="50" color="gray" noshade />
+            <div class="inputInfo">
+              <label for="Note-Personali-${counter}">Note personali - Facoltativo</label>
+              <input type="text" id="Note-Personali-${counter}" />
+            </div>
             <div class="inputInfo">
               <label for="Tipo-Moneta-${counter}">Tipo moneta</label>
               <select name="" id="Tipo-Moneta-${counter}">
@@ -46,6 +51,7 @@ addTradeButton.onclick = () => {
               >
               <input type="number" id="Quantità-Oggetti-Venduti-${counter}" />
             </div>
+            <button class="removeTrade" id="removeTradeButton-${counter}" onclick="changeDisplay(${counter})">Rimuovi</button>
             <br />
           </div>`;
   $(".trades").append(trade);
@@ -53,7 +59,6 @@ addTradeButton.onclick = () => {
 };
 
 triggerButton.onclick = () => {
-  console.log(createCommand());
   document.getElementById("output").value = createCommand();
 };
 
@@ -83,23 +88,41 @@ function createCommand() {
       // /give @p minecraft:player_head{...} 1     Questo e' quello che prendi dal sito delle teste,
       // quello che realmente ti interessa e' al posto dei puntini in mezzo alle graffe
       soldItem = soldItemInput.slice(31, -3);
-    }
+    } // qui puoi aggiungere un else o un else if per tutti gli altri casi
 
     // Se buyItem non e' una testa, per ora, per come e' scritto il codice, dovrai fare modifiche...
     // allo stesso modo in futuro potresti implementare diversi modi per comprare oltre a quelli che hai messo forzatamente (ferro, oro, diamante, netherite).
 
-    // Se vorrai creare scambi fra tutti gli oggetti e non solo teste allora le stringhe sotto vanno modificate
-    let recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{${buyItem}}},`;
-    let recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{${soldItem}}},rewardExp:0b,maxUses:9999999}`;
-    if (recipes === "") {
-      recipes = recipeBuy + recipeSell;
-    } else {
-      recipes += "," + recipeBuy + recipeSell;
+    // Creiamo un controllo per vedere se un trade e' stato annullato, se $('.n'+i)[0].attributes[1] non fosse === a undefined,
+    // vorrebbe dire che all'interno ci sarebbe una proprietà cosi' $('.n6')[0].attributes[1].value === 'display: none;' e se fosse,
+    // allora vogliamo che il trade non sia preso in considerazione.
+    if ($(".n" + i)[0].attributes[1] === undefined) {
+      // Se vorrai creare scambi fra tutti gli oggetti e non solo teste allora le stringhe sotto vanno modificate
+      let recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{${buyItem}}},`;
+      let recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{${soldItem}}},rewardExp:0b,maxUses:9999999}`;
+      if (recipes === "") {
+        recipes = recipeBuy + recipeSell;
+      } else {
+        recipes += "," + recipeBuy + recipeSell;
+      }
     }
   }
 
-  // DEVI creare una variabile chiamata recipes IMPORTANTE, dentro alla quale ci stanno tutte le ricette, se singola {}, se molte {},{},{}...
-
   let command = `/summon villager ${villagerPosition} {VillagerData:{profession:${villagerProfession},level:99,type:${villagerType}},Invulnerable:1,PersistenceRequired:1,NoAI:1,Rotation:[${villagerRotation},0f],CustomName:"\\"${villagerName}\\"",Offers:{Recipes:[${recipes}]}}`;
   return command;
+}
+
+// Funzione che copia il testo premendo un pulsante
+function copyText() {
+  var copyText = document.getElementById("output");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+}
+
+// Funzione che cambia il display in none,
+// se il display è none vuol dire che il trade non verra' preso
+// in considerazione per creare il codice del comando. (num sarebbe il counter)
+function changeDisplay(num) {
+  $(".n" + num).css("display", "none");
 }
