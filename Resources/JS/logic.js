@@ -1,7 +1,9 @@
 // Variabili
 let triggerButton = document.getElementById("button");
 let addTradeButton = document.getElementById("addTradeButton");
-let counter = 0;
+let counter = 0; // Serve in seguito per attribuire gli ID corretti
+
+//----------------------//
 
 // Triggeratori (il primo crea l'HTML degli scambi incrementando un counter che incrementera' tutti gli ID)
 addTradeButton.onclick = () => {
@@ -61,6 +63,8 @@ addTradeButton.onclick = () => {
 triggerButton.onclick = () => {
   document.getElementById("output").value = createCommand();
 };
+
+//-------------------------//
 
 // Funzioni
 function createCommand() {
