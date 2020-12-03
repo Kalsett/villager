@@ -12,6 +12,12 @@ addTradeButton.onclick = () => {
             <br/>
             <hr align="left" size="1" width="50" color="gray" noshade />
             <div class="inputInfo">
+              <!-- Dopo Trade n. hai messo counter + 1 per evitare che partisse da 0, invece in tutti gli altri ti serve che parta da 0 -->
+              <p class="numeroTrade" id="numeroTrade-${counter}">Trade n.${
+      counter + 1
+    }</p>
+            </div>
+            <div class="inputInfo">
               <label for="Note-Personali-${counter}">Note personali - Facoltativo</label>
               <input type="text" id="Note-Personali-${counter}" />
             </div>

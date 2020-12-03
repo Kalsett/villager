@@ -38,3 +38,9 @@ body {
 button {
   margin: 1rem 0rem;
 }
+
+.numeroTrade {
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: blueviolet;
+}
