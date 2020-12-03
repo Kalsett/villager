@@ -44,3 +44,20 @@ button {
   margin-bottom: 0px;
   color: blueviolet;
 }
+
+.linkTrades {
+  color: blueviolet;
+  font-size: 0.8rem;
+}
+
+.pLinkTrades {
+  display: inline;
+}
+
+a {
+  text-emphasis: none;
+  text-decoration: none;
+  margin-right: 5px;
+  outline: 0;
+  color: blueviolet;
+}

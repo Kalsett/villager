@@ -61,6 +61,9 @@ addTradeButton.onclick = () => {
         '<option value="' + item + '"></option>'
       );
     }
+    $(".linkTrades").append(
+      `<a href="#numeroTrade-${counter}">${counter + 1}    </a>`
+    );
     counter++;
   }
   // Questo IF - ELSE serve a mettere un trade alla volta oppure ad aggiungerne in un colpo il numero selezionato
