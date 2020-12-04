@@ -43,6 +43,7 @@ addTradeButton.onclick = () => {
                   <option value="Testa Oro" />
                   <option value="Testa Diamante" />
                   <option value="Testa Netherite" />
+                  <option value="Sh+MapArt" />
                 </datalist>
             </div>
             <div class="inputInfo">
@@ -153,6 +154,25 @@ function createCommand() {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Diamond Block\\"}"},SkullOwner:{Id:[I;189941930,1156075107,-1303444300,-811366351],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM0NjMwOWRiYjRhYWI2ZjlkMTRhNjI3ZmI3M2Y0ODE0MTY1ODM3YjQyMzg1ZjA2NDMyZDY4MDIzYTg0NDVkIn19fQ=="}]}}}},rewardExp:0b,maxUses:9999999}`;
       } else if (soldItem === "Testa Netherite") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Block of Netherite\\"}"},SkullOwner:{Id:[I;1156551679,-1088599583,-1500868190,-421557710],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc5NTdmODk1ZDdiYzUzNDIzYTM1YWFjNTlkNTg0YjQxY2MzMGUwNDAyNjljOTU1ZTQ1MWZlNjgwYTFjYzA0OSJ9fX0="}]}}}},rewardExp:0b,maxUses:9999999}`;
+      } else if (soldItem.slice(0, 9) === "Sh+MapArt") {
+        // Sh+MapArt-nomeSH-primoNum-SecondoNum
+        let nomeSH = soldItem.split("-")[1];
+        let primoNum = parseInt(soldItem.split("-")[2]);
+        let secondoNum = parseInt(soldItem.split("-")[3]);
+        let numMapArt = secondoNum - primoNum + 1;
+        let recSlotSH = "";
+        for (let i = 0; i < numMapArt; i++) {
+          if (recSlotSH === "") {
+            recSlotSH = `{Slot:${i}b,id:"minecraft:filled_map",Count:1b,tag:{map:${
+              primoNum + i
+            }}}`;
+          } else {
+            recSlotSH += `,{Slot:${i}b,id:"minecraft:filled_map",Count:1b,tag:{map:${
+              primoNum + i
+            }}}`;
+          }
+        }
+        recipeSell = `sell:{id:"minecraft:purple_shulker_box",Count:1b,tag:{display:{Name:'{"text":"${nomeSH}","color":"gold","italic":true}'},BlockEntityTag:{Items:[${recSlotSH}]}}},rewardExp:0b,maxUses:9999999}`;
       } else {
         recipeSell = `sell:{id:"${soldItem}", Count:${quantitySold}b},rewardExp:0b,maxUses:9999999}`;
       }
