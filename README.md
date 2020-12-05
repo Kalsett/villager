@@ -12,3 +12,5 @@ ISTRUZIONI PER L'USO
   manualmente ad essa 3 paramatri divisi da un TRATTINO: il nome della mapArt, il numero della prima mapArt e
   il numero dell'ultima mapArt che si vuole nella shulker. (Sh+MapArt-Calcio Specorato-1004-1018)
 - Per sciegliere le teste andare su: https://minecraft-heads.com/.
+- Se vuoi puoi anche incollare da google drive excell tutte le teste nel textarea usare da console la funzione tradeTeste(typeMoney, numMoney).
+  lei compilerà tutto in automatico per te.

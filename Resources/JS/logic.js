@@ -1,3 +1,5 @@
+console.log("tradeTeste(typeMoney, numMoney)");
+
 // Variabili
 let triggerButton = document.getElementById("button");
 let addTradeButton = document.getElementById("addTradeButton");
@@ -202,4 +204,19 @@ function copyText() {
 // in considerazione per creare il codice del comando. (num sarebbe il counter)
 function changeDisplay(num) {
   $(".n" + num).css("display", "none");
+}
+
+// Funzione che se immetti tutte le teste da excell direttamente nel texarea e
+// azionando la funzione lei ti autocompila tutto per fare un villager vendi teste in automatico
+function tradeTeste(typeMoney, numMoney) {
+  let arr = $("#output").val().split("\n");
+  $(`#numberOfTrades`).val(arr.length);
+  $(`#addTradeButton`).click();
+  for (let i = 0; i < arr.length; i++) {
+    $(`#Tipo-Moneta-${i}`).val(typeMoney);
+    $(`#Quantità-Monete-${i}`).val(numMoney);
+    $(`#Oggetto-Vendita-${i}`).val(arr[i]);
+    $(`#Quantità-Oggetti-Venduti-${i}`).val(1);
+  }
+  $(`#button`).click();
 }
