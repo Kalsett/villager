@@ -129,13 +129,32 @@
       <br />
       <button id="button">Crea il comando</button>
       <textarea id="output"></textarea>
-      <p>
+      <button id="copyButton" onclick="copyText()">Copia il comando</button>
+      <p class="istruzioni">
         Se vuoi le istruzioni nel dettaglio le trovi
         <a href="https://kalsett.github.io/villager/README.md" target="_blank"
           >qui</a
         >
       </p>
-      <button id="copyButton" onclick="copyText()">Copia il comando</button>
+      <div class="hiddenBox">
+        <br />
+        <div class="inputInfo">
+          <label for="Tipo-Moneta-hiddenBox">Tipo moneta</label>
+          <input list="moneta-hiddenBox" id="Tipo-Moneta-hiddenBox" />
+          <datalist id="moneta-hiddenBox">
+            <option value="Testa Ferro" />
+            <option value="Testa Oro" />
+            <option value="Testa Diamante" />
+            <option value="Testa Netherite" />
+          </datalist>
+        </div>
+        <div class="inputInfo">
+          <label for="Quantità-Monete-hiddenBox">Quantità monete</label>
+          <input type="number" id="Quantità-Monete-hiddenBox" />
+        </div>
+        <button class="automatizza" id="automatizza">Automatizza</button>
+        <br />
+      </div>
     </div>
     <script src="./Resources/JS/jquery350.js"></script>
     <script src="./Resources/JS/itemsID.js"></script>

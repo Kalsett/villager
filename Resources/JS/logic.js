@@ -3,6 +3,7 @@ console.log("tradeTeste(typeMoney, numMoney)");
 // Variabili
 let triggerButton = document.getElementById("button");
 let addTradeButton = document.getElementById("addTradeButton");
+let auto = document.getElementById("automatizza");
 let counter = 0; // Serve in seguito per attribuire gli ID corretti
 
 //----------------------//
@@ -76,12 +77,23 @@ addTradeButton.onclick = () => {
     for (let i = 0; i < parseInt($("#numberOfTrades").val()); i++) {
       trade();
     }
+    $("#numberOfTrades").val("");
   }
 };
 
 triggerButton.onclick = () => {
+  if ($("#output").val().split("\n")[0] === "AUTO") {
+    return $(".hiddenBox").css("display", "flex");
+  }
   document.getElementById("output").value = createCommand();
 };
+
+auto.addEventListener("click", function () {
+  automatizza();
+  $("#Tipo-Moneta-hiddenBox").val("");
+  $("#Quantità-Monete-hiddenBox").val("");
+  $(".hiddenBox").css("display", "none");
+});
 
 //-------------------------//
 
@@ -209,14 +221,25 @@ function changeDisplay(num) {
 // Funzione che se immetti tutte le teste da excell direttamente nel texarea e
 // azionando la funzione lei ti autocompila tutto per fare un villager vendi teste in automatico
 function tradeTeste(typeMoney, numMoney) {
-  let arr = $("#output").val().split("\n");
+  let arr = $("#output").val().split("\n").slice(1);
+  $("#output").val("");
   $(`#numberOfTrades`).val(arr.length);
   $(`#addTradeButton`).click();
-  for (let i = 0; i < arr.length; i++) {
+  let j = 0; // Questa ti serve per avere un iteratore da 0 diverso da i nel ciclo sucessivo
+  for (let i = counter - arr.length; i < counter; i++ && j++) {
     $(`#Tipo-Moneta-${i}`).val(typeMoney);
     $(`#Quantità-Monete-${i}`).val(numMoney);
-    $(`#Oggetto-Vendita-${i}`).val(arr[i]);
+    $(`#Oggetto-Vendita-${i}`).val(arr[j]);
     $(`#Quantità-Oggetti-Venduti-${i}`).val(1);
   }
-  $(`#button`).click();
+  // $(`#button`).click();
+}
+
+// Funzione che ti fa ritornare alla visualizzazione principale innescando l'automatizzazione della
+// crezione dei trade
+function automatizza() {
+  tradeTeste(
+    $("#Tipo-Moneta-hiddenBox").val(),
+    $("#Quantità-Monete-hiddenBox").val()
+  );
 }
