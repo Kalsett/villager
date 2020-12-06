@@ -113,7 +113,7 @@ function createCommand() {
     !villagerRotation ||
     !villagerName
   ) {
-    return alert("Compila prima i primi 5 campi obbligatori");
+    return "Compila prima i 5 campi obbligatori...ASINO!!!";
   }
 
   // Questo ciclo for serve a identificare tutti i trade che vuoi creare e ad aggiungerli alla recipes
