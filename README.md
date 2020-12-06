@@ -13,7 +13,8 @@
 - Nel campo "Oggetto in vendita", oltre alle opzioni precedenti, si possonono anche creare delle shulker con dentro
   delle mapArt da un certo numero ad un altro, per farlo basta selezionare la voce Sh+MapArt ed aggiungere
   manualmente ad essa 3 paramatri divisi da un TRATTINO: il nome della mapArt, il numero della prima mapArt e
-  il numero dell'ultima mapArt che si vuole nella shulker. (Sh+MapArt-Calcio Specorato-1004-1018)
+  il numero dell'ultima mapArt che si vuole nella shulker.
+  Sh+MapArt-Calcio Specorato-1004-1018
 
 - Per sciegliere le teste andare su: https://minecraft-heads.com/.
 
