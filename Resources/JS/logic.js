@@ -1,5 +1,3 @@
-console.log("tradeTeste(typeMoney, numMoney)");
-
 // Variabili
 let triggerButton = document.getElementById("button");
 let addTradeButton = document.getElementById("addTradeButton");
