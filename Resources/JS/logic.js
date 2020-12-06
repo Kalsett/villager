@@ -107,6 +107,17 @@ function createCommand() {
   let villagerName = document.getElementById("Nome").value;
   let recipes = "";
 
+  // IF che ti permette di avvisare l'utente e stoppare il programma se i campi obbligatori non sono stati compilati
+  if (
+    !villagerPosition ||
+    !villagerProfession ||
+    !villagerType ||
+    !villagerRotation ||
+    !villagerName
+  ) {
+    return alert("Compila prima i primi 5 campi obbligatori");
+  }
+
   // Questo ciclo for serve a identificare tutti i trade che vuoi creare e ad aggiungerli alla recipes
   for (let i = 0; i < $(".trade").length; i++) {
     // Quantità soldi per comprare nella valuta indicata (ferro, oro, diamante, netherite).
