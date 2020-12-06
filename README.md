@@ -4,6 +4,7 @@
 
 - Nel campo "Tipo di Moneta" si possono selezionare sia le "teste-moneta" che useremo nel server, sia
   i normali elementi di minecraft.
+
 - Nel campo "Oggetto in vendita" si possono selezionare sia le "teste-moneta" che useremo nel server, sia
   i normali elementi di minecraft, sia le teste che si trovano nel sito sottostante. (Per immettere
   correttamente la testa selezionata dal sito, basta incollare il link 1.16 suggerito dal
