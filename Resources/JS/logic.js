@@ -26,10 +26,10 @@ addTradeButton.onclick = () => {
               <label for="Tipo-Moneta-${counter}">Tipo moneta</label>
               <input list="moneta-${counter}" id="Tipo-Moneta-${counter}">
                 <datalist id="moneta-${counter}">
-                  <option value="Testa Ferro" />
-                  <option value="Testa Oro" />
-                  <option value="Testa Diamante" />
-                  <option value="Testa Netherite" />
+                  <option value="Iron Inàr" />
+                  <option value="Gold Inàr" />
+                  <option value="Diamond Inàr" />
+                  <option value="Netherite Inàr" />
                 </datalist>
             </div>
             <div class="inputInfo">
@@ -40,10 +40,10 @@ addTradeButton.onclick = () => {
               <label for="Oggetto-Vendita-${counter}">Oggetto in vendita</label>
               <input list="prodotto-${counter}" id="Oggetto-Vendita-${counter}">
                 <datalist id="prodotto-${counter}">
-                  <option value="Testa Ferro" />
-                  <option value="Testa Oro" />
-                  <option value="Testa Diamante" />
-                  <option value="Testa Netherite" />
+                  <option value="Iron Inàr" />
+                  <option value="Gold Inàr" />
+                  <option value="Diamond Inàr" />
+                  <option value="Netherite Inàr" />
                   <option value="Sh+MapArt" />
                 </datalist>
             </div>
@@ -155,13 +155,13 @@ function createCommand() {
 
       if (buyItem.slice(0, 7) === "display") {
         recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{${buyItem}}},`;
-      } else if (buyItem === "Testa Ferro") {
+      } else if (buyItem === "Iron Inàr") {
         recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{display:{Name:"{\\"text\\":\\"Iron Inàr\\"}"},SkullOwner:{Id:[I;-1273404245,-1758966597,-1508271075,-833688128],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjU2MjljMWM3N2FlYTJiMGNlYmNmMzMzNjU1ZTY4ZGIxMzRmNDg0MWMwOGQ5ZTg3NWMzMDc0YWMzMGUyYTZkZSJ9fX0="}]}}}},`;
-      } else if (buyItem === "Testa Oro") {
+      } else if (buyItem === "Gold Inàr") {
         recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{display:{Name:"{\\"text\\":\\"Gold Inàr\\"}"},SkullOwner:{Id:[I;-2055602587,-531214450,-1555823654,-1254945024],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUxMTM3ZTExNDQzYThmYmIwNWZjZDNjY2MxYWY5YmQyMzAzOTE4ZjM1NDQ4MTg1ZTNlZDk2ZWYxODRkYSJ9fX0="}]}}}},`;
-      } else if (buyItem === "Testa Diamante") {
+      } else if (buyItem === "Diamond Inàr") {
         recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{display:{Name:"{\\"text\\":\\"Diamond Inàr\\"}"},SkullOwner:{Id:[I;189941930,1156075107,-1303444300,-811366351],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM0NjMwOWRiYjRhYWI2ZjlkMTRhNjI3ZmI3M2Y0ODE0MTY1ODM3YjQyMzg1ZjA2NDMyZDY4MDIzYTg0NDVkIn19fQ=="}]}}}},`;
-      } else if (buyItem === "Testa Netherite") {
+      } else if (buyItem === "Netherite Inàr") {
         recipeBuy = `{buy:{id:"minecraft:player_head", Count:${quantityBuy}b, tag:{display:{Name:"{\\"text\\":\\"Netherite Inàr\\"}"},SkullOwner:{Id:[I;1156551679,-1088599583,-1500868190,-421557710],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc5NTdmODk1ZDdiYzUzNDIzYTM1YWFjNTlkNTg0YjQxY2MzMGUwNDAyNjljOTU1ZTQ1MWZlNjgwYTFjYzA0OSJ9fX0="}]}}}},`;
       } else {
         recipeBuy = `{buy:{id:"${buyItem}", Count:${quantityBuy}b},`;
@@ -169,13 +169,13 @@ function createCommand() {
       //---
       if (soldItem.slice(0, 7) === "display") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{${soldItem}}},rewardExp:0b,maxUses:9999999}`;
-      } else if (soldItem === "Testa Ferro") {
+      } else if (soldItem === "Iron Inàr") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Iron Inàr\\"}"},SkullOwner:{Id:[I;-1273404245,-1758966597,-1508271075,-833688128],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjU2MjljMWM3N2FlYTJiMGNlYmNmMzMzNjU1ZTY4ZGIxMzRmNDg0MWMwOGQ5ZTg3NWMzMDc0YWMzMGUyYTZkZSJ9fX0="}]}}}},rewardExp:0b,maxUses:9999999}`;
-      } else if (soldItem === "Testa Oro") {
+      } else if (soldItem === "Gold Inàr") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Gold Inàr\\"}"},SkullOwner:{Id:[I;-2055602587,-531214450,-1555823654,-1254945024],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUxMTM3ZTExNDQzYThmYmIwNWZjZDNjY2MxYWY5YmQyMzAzOTE4ZjM1NDQ4MTg1ZTNlZDk2ZWYxODRkYSJ9fX0="}]}}}},rewardExp:0b,maxUses:9999999}`;
-      } else if (soldItem === "Testa Diamante") {
+      } else if (soldItem === "Diamond Inàr") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Diamond Inàr\\"}"},SkullOwner:{Id:[I;189941930,1156075107,-1303444300,-811366351],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjM0NjMwOWRiYjRhYWI2ZjlkMTRhNjI3ZmI3M2Y0ODE0MTY1ODM3YjQyMzg1ZjA2NDMyZDY4MDIzYTg0NDVkIn19fQ=="}]}}}},rewardExp:0b,maxUses:9999999}`;
-      } else if (soldItem === "Testa Netherite") {
+      } else if (soldItem === "Netherite Inàr") {
         recipeSell = `sell:{id:"minecraft:player_head", Count:${quantitySold}b, tag:{display:{Name:"{\\"text\\":\\"Netherite Inàr\\"}"},SkullOwner:{Id:[I;1156551679,-1088599583,-1500868190,-421557710],Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjc5NTdmODk1ZDdiYzUzNDIzYTM1YWFjNTlkNTg0YjQxY2MzMGUwNDAyNjljOTU1ZTQ1MWZlNjgwYTFjYzA0OSJ9fX0="}]}}}},rewardExp:0b,maxUses:9999999}`;
       } else if (soldItem.slice(0, 9) === "Sh+MapArt") {
         // Sh+MapArt-nomeSH-primoNum-SecondoNum
