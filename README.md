@@ -15,6 +15,8 @@
   manualmente ad essa 3 paramatri divisi da un TRATTINO: il nome della mapArt, il numero della prima mapArt e
   il numero dell'ultima mapArt che si vuole nella shulker.
   Sh+MapArt-Calcio Specorato-1004-1018
+  Se la shulker contenesse solo una mapArt allora ripeti il primo numero anche nella posizione del secondo numero:
+  Sh+MapArt-Nome Shulker-2010-2010
 
 - Per sciegliere le teste andare su: https://minecraft-heads.com/.
 
