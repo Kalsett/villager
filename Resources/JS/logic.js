@@ -235,10 +235,12 @@ function tradeTeste(typeMoney, numMoney) {
   $(`#numberOfTrades`).val(arr.length);
   $(`#addTradeButton`).click();
   let j = 0; // Questa ti serve per avere un iteratore da 0 diverso da i nel ciclo sucessivo
-  for (let i = counter - arr.length; i < counter; i++ && j++) {
+  // Qui sotto alla i fai prendere questi valori per fare in modo che si possa riutilizzare l'AUTO anche diverse volte nello stesso villager
+  for (let i = counter - arr.length; i < counter; i++) {
     $(`#Tipo-Moneta-${i}`).val(typeMoney);
     $(`#Quantità-Monete-${i}`).val(numMoney);
     $(`#Oggetto-Vendita-${i}`).val(arr[j]);
+    j++;
     $(`#Quantità-Oggetti-Venduti-${i}`).val(1);
   }
   // $(`#button`).click();
