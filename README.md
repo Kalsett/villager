@@ -31,3 +31,22 @@
 
   Nell'automatismo, puoi usare qualsiasi opzione elencata prima (teste, mapArt, item di minecraft) e puoi creare anche più automatismi, basta che ne fai uno alla volta.
   Alla fine quando avrai tutti i tuoi trade ti basta schiacciare nuovamente 'Crea il comando'.
+
+- Se il codice sotto viene copiato e incollato nella console della pagina https://minecraft.gamehosting.it/panel/index.php?r=server/log&id=44173, cambiando il nome del player e i numeri di inizio e fine delle map art e premendo INVIO si crea un automatismo che obbliga il server a givvare al player le mapart in blocco. Ad esempio per come e' scritto ora "createListaComandi("Kalsett", 7020, 7029)", l'automatismo dara' a Kalsett le mapArt dalla 7020 alla 7029.
+
+  function createListaComandi(player, num1, num2) {
+  let listaComandi = [];
+  let delta = num2 - num1 + 1;
+  for (let i = 0; i < delta; i++) {
+  listaComandi.push(`give ${player} filled_map{map:${num1 + i}} 1`);
+  }
+  return listaComandi;
+  }
+  ​
+  let listaComandi = createListaComandi("Kalsett", 7020, 7029);
+  ​
+  for (let com of listaComandi) {
+  document.getElementById("command").value = com;
+  document.getElementById("yt4").click();
+  document.getElementById("command").value = "";
+  }
